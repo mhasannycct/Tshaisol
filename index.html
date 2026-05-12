@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSH AI Solutions | AI-Powered Global Recruitment</title>
+  <meta name="description" content="TSH AI Solutions is a Madrid-based AI recruitment and workforce development company helping businesses hire verified global talent faster." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(255,255,255,0.07);
+      --card2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.12);
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --gold: #fbbf24;
+      --gold2: #fde68a;
+      --blue: #22d3ee;
+      --navy: #0f172a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(251,191,36,.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(34,211,238,.15), transparent 32%),
+        linear-gradient(180deg, #020617 0%, #020617 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 6, 23, .82);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; padding: 16px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 260px; }
+    .logoBox {
+      height: 64px; width: 64px; flex: 0 0 64px;
+      background: #fff; border-radius: 18px; padding: 7px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(251,191,36,.18);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .logoBox img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .brandName { font-size: 24px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+    .brandSub { color: var(--soft); font-size: 14px; margin-top: 6px; }
+    .navLinks { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 14px; font-weight: 600; }
+    .navLinks a:hover { color: var(--gold2); }
+    .languageSelect {
+      background: rgba(255,255,255,.08); color: #fff;
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 10px 12px; outline: none;
+    }
+    .languageSelect option { background: #0f172a; color: #fff; }
+
+    section { padding: 82px 0; }
+    .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; padding-top: 88px; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(251,191,36,.32);
+      background: rgba(251,191,36,.10); color: var(--gold2);
+      padding: 10px 16px; border-radius: 999px;
+      font-size: 14px; font-weight: 700; margin-bottom: 24px;
+    }
+    h1 { font-size: clamp(44px, 6vw, 78px); line-height: .97; letter-spacing: -0.07em; font-weight: 900; }
+    .hero p { margin-top: 24px; color: var(--muted); font-size: 20px; line-height: 1.7; max-width: 690px; }
+    .ctaRow { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .btn {
+      border: 1px solid var(--border); border-radius: 18px;
+      padding: 16px 22px; font-weight: 900; display: inline-flex; align-items: center; gap: 10px;
+      cursor: pointer; transition: .25s ease; font-size: 15px;
+    }
+    .btnPrimary { background: var(--gold); color: #06111f; border-color: var(--gold); }
+    .btnPrimary:hover { transform: translateY(-2px); background: #fcd34d; }
+    .btnSecondary { background: rgba(255,255,255,.06); color: #fff; }
+    .btnSecondary:hover { background: rgba(255,255,255,.12); }
+    .trust { margin-top: 28px; color: var(--soft); font-size: 14px; display: flex; gap: 8px; align-items: center; }
+
+    .heroCard {
+      position: relative; border: 1px solid var(--border); border-radius: 34px;
+      background: rgba(255,255,255,.09); padding: 26px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.35);
+    }
+    .heroCard:before {
+      content: ""; position: absolute; inset: -18px; border-radius: 42px;
+      background: linear-gradient(135deg, rgba(251,191,36,.16), rgba(34,211,238,.10));
+      filter: blur(26px); z-index: -1;
+    }
+    .talentOS { background: rgba(15,23,42,.85); border: 1px solid var(--border); border-radius: 28px; padding: 26px; }
+    .osTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; }
+    .osSmall { color: var(--soft); font-size: 14px; }
+    .osTitle { font-size: 28px; font-weight: 900; margin-top: 4px; }
+    .osIcon { font-size: 42px; }
+    .workflow { display: grid; gap: 14px; }
+    .workflowItem {
+      display: flex; gap: 14px; align-items: center; padding: 16px;
+      border: 1px solid var(--border); border-radius: 18px;
+      background: rgba(255,255,255,.05);
+    }
+    .workflowIcon { font-size: 24px; }
+    .workflowTitle { font-weight: 800; }
+    .workflowSmall { color: var(--soft); font-size: 12px; margin-top: 3px; }
+
+    .mediaStrip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,.03); padding: 28px 0; }
+    .mediaGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .mediaLogo, .mediaCard {
+      border: 1px solid var(--border); background: rgba(255,255,255,.06);
+      border-radius: 20px; padding: 20px; text-align: center; font-weight: 900;
+    }
+
+    .sectionHead { max-width: 800px; margin-bottom: 40px; }
+    .eyebrow { color: var(--gold); font-weight: 900; margin-bottom: 12px; }
+    h2 { font-size: clamp(34px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.055em; font-weight: 900; }
+    .lead { margin-top: 18px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .featureCard, .infoCard, .founderCard, .contactCard {
+      background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 28px;
+    }
+    .featureCard:hover { background: rgba(255,255,255,.10); transform: translateY(-4px); }
+    .featureIcon { font-size: 38px; margin-bottom: 20px; }
+    .featureCard h3 { font-size: 20px; margin-bottom: 12px; }
+    .featureCard p, .infoCard p, .founderCard p { color: var(--muted); line-height: 1.75; }
+
+    .twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .industryGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+    .pill { padding: 14px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,.05); color: var(--muted); font-weight: 700; }
+    .pill span { color: var(--gold); margin-right: 7px; }
+
+    .mediaSection { background: rgba(255,255,255,.03); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .mediaContent { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+    .mediaCards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mediaCard { text-align: left; padding: 26px; }
+    .mediaCard small { display: block; color: var(--gold); margin-top: 12px; font-weight: 800; }
+    .disclaimer { margin-top: 16px; color: #64748b; font-size: 13px; line-height: 1.6; }
+
+    .founderContact { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+    .founderPhoto {
+      width: 120px; height: 120px; border-radius: 28px; overflow: hidden;
+      background: rgba(255,255,255,.08); border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(0,0,0,.35); margin-bottom: 26px;
+    }
+    .founderPhoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    form { display: grid; gap: 14px; margin-top: 22px; }
+    label { display: block; color: var(--muted); font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    input, textarea {
+      width: 100%; background: rgba(15,23,42,.88); border: 1px solid rgba(148,163,184,.25);
+      border-radius: 18px; color: #fff; padding: 15px 16px; font: inherit; outline: none;
+    }
+    input:focus, textarea:focus { border-color: var(--gold); }
+    textarea { resize: vertical; min-height: 130px; }
+    .submitBtn {
+      border: 0; border-radius: 18px; padding: 17px; background: var(--gold);
+      color: #020617; font-weight: 900; font-size: 16px; cursor: pointer;
+    }
+    .contactDetails { margin-top: 26px; color: var(--muted); display: grid; gap: 12px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--soft); font-size: 14px; }
+    .footerFlex { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footerLinks { display: flex; gap: 20px; }
+
+    [dir="rtl"] { text-align: right; }
+    [dir="rtl"] .brand, [dir="rtl"] .workflowItem, [dir="rtl"] .trust { flex-direction: row-reverse; }
+    [dir="rtl"] .pill span { margin-right: 0; margin-left: 7px; }
+
+    @media (max-width: 1000px) {
+      .navLinks { display: none; }
+      .hero, .twoCol, .mediaContent, .founderContact { grid-template-columns: 1fr; }
+      .features { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      section { padding: 58px 0; }
+      .brandName { font-size: 19px; }
+      .brandSub { font-size: 12px; }
+      .logoBox { height: 54px; width: 54px; flex-basis: 54px; }
+      .nav { align-items: flex-start; }
+      .languageSelect { max-width: 105px; }
+      .features, .mediaGrid, .mediaCards, .industryGrid { grid-template-columns: 1fr; }
+      h1 { font-size: 43px; }
+      .hero p { font-size: 17px; }
+      .heroCard, .featureCard, .infoCard, .founderCard, .contactCard { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="TSH AI Solutions home">
+        <div class="logoBox">
+          <img src="https://raw.githubusercontent.com/mhasannycct/Tshaisol/refs/heads/main/tshailogo.png" alt="TSH AI Solutions Logo" />
+        </div>
+        <div>
+          <div class="brandName">TSH AI Solutions</div>
+          <div class="brandSub">Sociedad Limitada · Madrid</div>
+        </div>
+      </a>
+      <nav class="navLinks" id="navLinks"></nav>
+      <select id="languageSelect" class="languageSelect" aria-label="Select language"></select>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <div class="kicker">✨ <span data-i18n="heroKicker"></span></div>
+        <h1 data-i18n="heroTitle"></h1>
+        <p data-i18n="heroSubtitle"></p>
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#contact"><span data-i18n="ctaPrimary"></span> →</a>
+          <a class="btn btnSecondary" href="#contact" data-i18n="ctaSecondary"></a>
+        </div>
+        <div class="trust">📰 <span data-i18n="trusted"></span></div>
+      </div>
+
+      <div class="heroCard">
+        <div class="talentOS">
+          <div class="osTop">
+            <div>
+              <div class="osSmall">Global Hiring Intelligence</div>
+              <div class="osTitle">TSH AI Talent OS</div>
+            </div>
+            <div class="osIcon">🌍</div>
+          </div>
+          <div class="workflow" id="workflowList"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mediaStrip">
+      <div class="container mediaGrid" id="mediaStrip"></div>
+    </div>
+
+    <section class="container" id="platform">
+      <div class="sectionHead">
+        <div class="eyebrow">The Platform</div>
+        <h2 data-i18n="platformTitle"></h2>
+        <p class="lead" data-i18n="platformSubtitle"></p>
+      </div>
+      <div class="features" id="featuresGrid"></div>
+    </section>
+
+    <section class="container twoCol" id="industries">
+      <div class="infoCard">
+        <div class="featureIcon">🏢</div>
+        <h2 data-i18n="industriesTitle"></h2>
+        <div class="industryGrid" id="industryGrid"></div>
+      </div>
+      <div class="infoCard">
+        <div class="featureIcon">📍</div>
+        <h2 data-i18n="spainTitle"></h2>
+        <p class="lead" data-i18n="spainText"></p>
+      </div>
+    </section>
+
+    <section class="mediaSection" id="media">
+      <div class="container mediaContent">
+        <div>
+          <div class="featureIcon">📰</div>
+          <h2 data-i18n="mediaTitle"></h2>
+          <p class="lead" data-i18n="mediaText"></p>
+          <p class="disclaimer" data-i18n="mediaDisclaimer"></p>
+        </div>
+        <div class="mediaCards" id="mediaCards"></div>
+      </div>
+    </section>
+
+    <section class="container founderContact" id="contact">
+      <div class="founderCard" id="founder">
+        <div class="founderPhoto">
+          <img src="https://raw.githubusercontent.com/mhasannycct/Tshaisol/refs/heads/main/mhasanfounder.jpeg" alt="Mahamudul Hasan, Founder of TSH AI Solutions" />
+        </div>
+        <h2 data-i18n="founderTitle"></h2>
+        <p class="lead" data-i18n="founderText"></p>
+      </div>
+
+      <div class="contactCard">
+        <h2 data-i18n="contactTitle"></h2>
+        <p class="lead" data-i18n="contactText"></p>
+        <form id="contactForm">
+          <div><label id="labelName"></label><input id="name" name="name" type="text" required /></div>
+          <div><label id="labelCompany"></label><input id="company" name="company" type="text" /></div>
+          <div><label id="labelEmail"></label><input id="email" name="email" type="email" required /></div>
+          <div><label id="labelPhone"></label><input id="phone" name="phone" type="tel" /></div>
+          <div><label id="labelNeed"></label><input id="need" name="need" type="text" /></div>
+          <div><label id="labelMessage"></label><textarea id="message" name="message" required></textarea></div>
+          <button class="submitBtn" type="submit" data-i18n="submit"></button>
+        </form>
+        <div class="contactDetails">
+          <div>✉ info@tshaisolutions.com</div>
+          <div>☎ +34 623 55 25 14</div>
+          <div>📍 Madrid, Spain</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerFlex">
+      <div data-i18n="footer"></div>
+      <div class="footerLinks"><a href="#">Privacy</a><a href="#">Terms</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const mediaLogos = ["AP News", "Digital Journal", "USA News", "Wall Street Times"];
+    const workflowIcons = ["🔎", "🧠", "🌐", "✅"];
+    const featureIcons = ["🧠", "✅", "💼", "⚡"];
+
+    const translations = {
+      en: {
+        label: "English",
+        nav: ["Home", "Platform", "Industries", "Media", "Founder", "Contact"],
+        heroKicker: "Madrid-based AI Recruitment Technology Company",
+        heroTitle: "AI-Powered Global Recruitment for Spain, Europe & Beyond",
+        heroSubtitle: "TSH AI Solutions helps Spanish and European companies hire verified global talent faster using artificial intelligence, automation, and international candidate networks.",
+        ctaPrimary: "Hire Talent",
+        ctaSecondary: "Join as Candidate",
+        trusted: "Featured through our U.S. company, The Skill Hire",
+        stats: ["AI-driven matching", "Global talent sourcing", "Spain & EU expansion", "Founder-led execution"],
+        platformTitle: "Recruitment built for the global workforce shortage era",
+        platformSubtitle: "We combine AI screening, candidate verification, employer workflow automation, and recruitment-as-a-service to reduce hiring friction for startups, SMEs, and growing enterprises.",
+        features: [
+          ["AI Candidate Matching", "Automated screening, ranking, and intelligent job-to-candidate matching."],
+          ["Verified Global Talent", "International candidates pre-qualified by skills, sector, and readiness."],
+          ["Recruitment-as-a-Service", "End-to-end hiring support from sourcing to shortlist and placement."],
+          ["Data-Driven Hiring", "Structured insights to help employers make faster, better hiring decisions."]
+        ],
+        industriesTitle: "Industries We Serve",
+        industries: ["Technology", "Healthcare", "Digital Services", "Real Estate", "Fintech", "Skilled Technical Roles"],
+        mediaTitle: "Global credibility powered by media recognition",
+        mediaText: "The founder’s U.S. recruitment company, The Skill Hire, has been featured across major news and media platforms for AI recruitment innovation and global talent solutions.",
+        mediaDisclaimer: "Media coverage relates to The Skill Hire, the founder’s U.S.-based AI recruitment company.",
+        founderTitle: "Founded by Mahamudul Hasan",
+        founderText: "Mahamudul Hasan is a recruitment strategist, software engineer, and tech entrepreneur building TSH AI Solutions as a global AI-powered recruitment and workforce development company. His vision is to make hiring faster, smarter, and more accessible by connecting companies with qualified global talent through technology, automation, and AI-driven solutions.",
+        spainTitle: "Built in Madrid. Designed for Europe. Connected globally.",
+        spainText: "Spain is a strategic gateway for European growth. TSH AI Solutions begins in Madrid with a digital-first model, serving companies that need faster access to skilled international professionals.",
+        contactTitle: "Ready to hire globally?",
+        contactText: "Tell us what talent you need. Our team will help you build a smarter hiring pipeline.",
+        form: ["Full Name", "Company", "Email", "Phone", "Hiring Need", "Message"],
+        submit: "Submit Inquiry",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. Written and developed for Mahamudul Hasan."
+      },
+      es: {
+        label: "Español",
+        nav: ["Inicio", "Plataforma", "Sectores", "Medios", "Fundador", "Contacto"],
+        heroKicker: "Empresa tecnológica de reclutamiento con IA en Madrid",
+        heroTitle: "Reclutamiento Global con Inteligencia Artificial para España, Europa y el Mundo",
+        heroSubtitle: "TSH AI Solutions ayuda a empresas españolas y europeas a contratar talento global verificado más rápido mediante inteligencia artificial, automatización y redes internacionales de candidatos.",
+        ctaPrimary: "Contratar Talento",
+        ctaSecondary: "Unirme como Candidato",
+        trusted: "Destacado a través de nuestra empresa estadounidense, The Skill Hire",
+        stats: ["Matching con IA", "Talento global", "Expansión España y UE", "Ejecución liderada por fundador"],
+        platformTitle: "Reclutamiento diseñado para la era de escasez global de talento",
+        platformSubtitle: "Combinamos selección con IA, verificación de candidatos, automatización del flujo de contratación y recruitment-as-a-service.",
+        features: [["Matching de candidatos con IA", "Selección, ranking y conexión inteligente."], ["Talento global verificado", "Candidatos internacionales pre-calificados."], ["Recruitment-as-a-Service", "Soporte integral desde búsqueda hasta colocación."], ["Contratación basada en datos", "Información estructurada para mejores decisiones."]],
+        industriesTitle: "Sectores que atendemos",
+        industries: ["Tecnología", "Salud", "Servicios Digitales", "Bienes Raíces", "Fintech", "Roles Técnicos Especializados"],
+        mediaTitle: "Credibilidad global impulsada por reconocimiento mediático",
+        mediaText: "La empresa estadounidense del fundador, The Skill Hire, ha sido destacada por innovación en reclutamiento con IA y soluciones globales de talento.",
+        mediaDisclaimer: "La cobertura mediática corresponde a The Skill Hire, empresa estadounidense de reclutamiento con IA del fundador.",
+        founderTitle: "Fundada por Mahamudul Hasan",
+        founderText: "Mahamudul Hasan es estratega de reclutamiento, ingeniero de software y emprendedor tecnológico que está construyendo TSH AI Solutions como una empresa global de reclutamiento y desarrollo laboral impulsada por IA.",
+        spainTitle: "Creada en Madrid. Diseñada para Europa. Conectada globalmente.",
+        spainText: "España es una puerta estratégica para el crecimiento europeo. TSH AI Solutions comienza en Madrid con un modelo digital-first.",
+        contactTitle: "¿Listo para contratar globalmente?",
+        contactText: "Cuéntenos qué talento necesita. Le ayudaremos a crear un pipeline de contratación más inteligente.",
+        form: ["Nombre Completo", "Empresa", "Correo", "Teléfono", "Necesidad de Contratación", "Mensaje"],
+        submit: "Enviar Consulta",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. Escrito y desarrollado para Mahamudul Hasan."
+      },
+      de: {
+        label: "Deutsch",
+        nav: ["Start", "Plattform", "Branchen", "Medien", "Gründer", "Kontakt"],
+        heroKicker: "KI-Recruiting-Technologieunternehmen aus Madrid",
+        heroTitle: "KI-gestützte globale Personalvermittlung für Spanien, Europa und darüber hinaus",
+        heroSubtitle: "TSH AI Solutions unterstützt spanische und europäische Unternehmen dabei, verifizierte globale Fachkräfte schneller mit KI, Automatisierung und internationalen Talentnetzwerken einzustellen.",
+        ctaPrimary: "Talente einstellen",
+        ctaSecondary: "Als Kandidat beitreten",
+        trusted: "Vorgestellt durch unser US-Unternehmen The Skill Hire",
+        stats: ["KI-Matching", "Globale Talentsuche", "Spanien & EU", "Gründergeführt"],
+        platformTitle: "Recruiting für das Zeitalter globaler Fachkräfteengpässe",
+        platformSubtitle: "Wir kombinieren KI-Screening, Kandidatenprüfung, Workflow-Automatisierung und Recruitment-as-a-Service.",
+        features: [["KI-Kandidatenmatching", "Automatisiertes Screening, Ranking und intelligentes Matching."], ["Verifizierte globale Talente", "Internationale Kandidaten nach Fähigkeiten und Branche."], ["Recruitment-as-a-Service", "End-to-End-Unterstützung von Sourcing bis Platzierung."], ["Datenbasierte Einstellung", "Strukturierte Erkenntnisse für bessere Entscheidungen."]],
+        industriesTitle: "Branchen",
+        industries: ["Technologie", "Gesundheitswesen", "Digitale Services", "Immobilien", "Fintech", "Technische Fachrollen"],
+        mediaTitle: "Globale Glaubwürdigkeit durch Medienpräsenz",
+        mediaText: "The Skill Hire, das US-Unternehmen des Gründers, wurde für KI-Recruiting und globale Talentlösungen medial vorgestellt.",
+        mediaDisclaimer: "Die Medienberichterstattung bezieht sich auf The Skill Hire, das US-Recruitingunternehmen des Gründers.",
+        founderTitle: "Gegründet von Mahamudul Hasan",
+        founderText: "Mahamudul Hasan ist Recruiting-Stratege, Software Engineer und Tech-Unternehmer, der TSH AI Solutions als globales KI-gestütztes Recruiting- und Workforce-Development-Unternehmen aufbaut.",
+        spainTitle: "In Madrid aufgebaut. Für Europa entwickelt. Global vernetzt.",
+        spainText: "Spanien ist ein strategisches Tor für europäisches Wachstum. TSH AI Solutions startet in Madrid mit einem digitalen Modell.",
+        contactTitle: "Bereit, global einzustellen?",
+        contactText: "Sagen Sie uns, welche Talente Sie benötigen. Wir helfen beim Aufbau einer smarteren Hiring-Pipeline.",
+        form: ["Name", "Unternehmen", "E-Mail", "Telefon", "Einstellungsbedarf", "Nachricht"],
+        submit: "Anfrage senden",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. Geschrieben und entwickelt für Mahamudul Hasan."
+      },
+      fr: {
+        label: "Français",
+        nav: ["Accueil", "Plateforme", "Secteurs", "Médias", "Fondateur", "Contact"],
+        heroKicker: "Entreprise de technologie RH IA basée à Madrid",
+        heroTitle: "Recrutement mondial propulsé par l’IA pour l’Espagne, l’Europe et au-delà",
+        heroSubtitle: "TSH AI Solutions aide les entreprises espagnoles et européennes à recruter plus rapidement des talents mondiaux vérifiés grâce à l’IA, l’automatisation et des réseaux internationaux.",
+        ctaPrimary: "Recruter des talents",
+        ctaSecondary: "Rejoindre comme candidat",
+        trusted: "Présenté via notre société américaine, The Skill Hire",
+        stats: ["Matching IA", "Talents mondiaux", "Espagne & UE", "Dirigé par le fondateur"],
+        platformTitle: "Le recrutement conçu pour l’ère de la pénurie mondiale de talents",
+        platformSubtitle: "Nous combinons sélection IA, vérification des candidats, automatisation et recruitment-as-a-service.",
+        features: [["Matching IA", "Sélection, classement et correspondance intelligente."], ["Talents vérifiés", "Candidats internationaux préqualifiés."], ["Recruitment-as-a-Service", "Accompagnement complet du sourcing au placement."], ["Recrutement data-driven", "Insights structurés pour de meilleures décisions."]],
+        industriesTitle: "Secteurs servis",
+        industries: ["Technologie", "Santé", "Services numériques", "Immobilier", "Fintech", "Rôles techniques qualifiés"],
+        mediaTitle: "Crédibilité mondiale grâce à la reconnaissance médiatique",
+        mediaText: "The Skill Hire, l’entreprise américaine du fondateur, a été présentée dans des médias pour son innovation en recrutement IA.",
+        mediaDisclaimer: "La couverture médiatique concerne The Skill Hire, l’entreprise américaine du fondateur.",
+        founderTitle: "Fondée par Mahamudul Hasan",
+        founderText: "Mahamudul Hasan est stratège en recrutement, ingénieur logiciel et entrepreneur technologique développant TSH AI Solutions comme une entreprise mondiale de recrutement et développement des talents propulsée par l’IA.",
+        spainTitle: "Créée à Madrid. Conçue pour l’Europe. Connectée au monde.",
+        spainText: "L’Espagne est une passerelle stratégique vers l’Europe. TSH AI Solutions démarre à Madrid avec un modèle digital-first.",
+        contactTitle: "Prêt à recruter mondialement ?",
+        contactText: "Dites-nous les talents dont vous avez besoin. Nous construirons un pipeline de recrutement intelligent.",
+        form: ["Nom", "Entreprise", "Email", "Téléphone", "Besoin de recrutement", "Message"],
+        submit: "Envoyer",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. Rédigé et développé pour Mahamudul Hasan."
+      },
+      ar: {
+        label: "العربية",
+        nav: ["الرئيسية", "المنصة", "القطاعات", "الإعلام", "المؤسس", "تواصل"],
+        heroKicker: "شركة توظيف بتقنية الذكاء الاصطناعي مقرها مدريد",
+        heroTitle: "توظيف عالمي مدعوم بالذكاء الاصطناعي لإسبانيا وأوروبا وما بعدها",
+        heroSubtitle: "تساعد TSH AI Solutions الشركات الإسبانية والأوروبية على توظيف مواهب عالمية موثقة بسرعة عبر الذكاء الاصطناعي والأتمتة وشبكات المرشحين الدولية.",
+        ctaPrimary: "وظّف المواهب",
+        ctaSecondary: "انضم كمرشح",
+        trusted: "ظهور إعلامي عبر شركتنا الأمريكية The Skill Hire",
+        stats: ["مطابقة بالذكاء الاصطناعي", "مصادر مواهب عالمية", "إسبانيا والاتحاد الأوروبي", "قيادة مؤسس"],
+        platformTitle: "توظيف مصمم لعصر نقص القوى العاملة العالمية",
+        platformSubtitle: "نجمع بين فحص المرشحين بالذكاء الاصطناعي، التحقق، أتمتة سير العمل، وخدمة التوظيف المتكاملة.",
+        features: [["مطابقة المرشحين بالذكاء الاصطناعي", "فحص وترتيب وربط ذكي."], ["مواهب عالمية موثقة", "مرشحون دوليون مؤهلون حسب المهارات."], ["التوظيف كخدمة", "دعم كامل من البحث إلى التعيين."], ["توظيف قائم على البيانات", "رؤى منظمة لاتخاذ قرارات أسرع."]],
+        industriesTitle: "القطاعات التي نخدمها",
+        industries: ["التكنولوجيا", "الرعاية الصحية", "الخدمات الرقمية", "العقارات", "التكنولوجيا المالية", "الأدوار التقنية المتخصصة"],
+        mediaTitle: "مصداقية عالمية مدعومة بالظهور الإعلامي",
+        mediaText: "ظهرت شركة The Skill Hire الأمريكية التابعة للمؤسس في منصات إعلامية بسبب الابتكار في التوظيف بالذكاء الاصطناعي.",
+        mediaDisclaimer: "التغطية الإعلامية تتعلق بشركة The Skill Hire الأمريكية التابعة للمؤسس.",
+        founderTitle: "أسسها Mahamudul Hasan",
+        founderText: "Mahamudul Hasan هو استراتيجي توظيف ومهندس برمجيات ورائد أعمال تقني يبني TSH AI Solutions كشركة عالمية للتوظيف وتطوير القوى العاملة مدعومة بالذكاء الاصطناعي.",
+        spainTitle: "بُنيت في مدريد. صُممت لأوروبا. متصلة بالعالم.",
+        spainText: "إسبانيا بوابة استراتيجية للنمو الأوروبي. تبدأ TSH AI Solutions في مدريد بنموذج رقمي أولاً.",
+        contactTitle: "هل أنت مستعد للتوظيف عالمياً؟",
+        contactText: "أخبرنا بنوع المواهب التي تحتاجها وسنساعدك في بناء مسار توظيف أذكى.",
+        form: ["الاسم الكامل", "الشركة", "البريد الإلكتروني", "الهاتف", "احتياج التوظيف", "الرسالة"],
+        submit: "إرسال الاستفسار",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. كُتب وطُوّر لصالح Mahamudul Hasan."
+      },
+      zh: {
+        label: "中文",
+        nav: ["首页", "平台", "行业", "媒体", "创始人", "联系"],
+        heroKicker: "总部位于马德里的人工智能招聘科技公司",
+        heroTitle: "面向西班牙、欧洲及全球的人工智能招聘平台",
+        heroSubtitle: "TSH AI Solutions 通过人工智能、自动化和国际候选人网络，帮助西班牙和欧洲企业更快招聘经过验证的全球人才。",
+        ctaPrimary: "招聘人才",
+        ctaSecondary: "加入候选人网络",
+        trusted: "通过美国公司 The Skill Hire 获得媒体报道",
+        stats: ["AI 智能匹配", "全球人才 sourcing", "西班牙与欧盟扩张", "创始人主导执行"],
+        platformTitle: "为全球人才短缺时代打造的招聘平台",
+        platformSubtitle: "我们结合 AI 筛选、候选人验证、招聘流程自动化和招聘即服务，帮助企业降低招聘摩擦。",
+        features: [["AI 候选人匹配", "自动筛选、排名和智能职位匹配。"], ["经过验证的全球人才", "按技能、行业和准备度预筛选国际候选人。"], ["招聘即服务", "从 sourcing 到录用的端到端支持。"], ["数据驱动招聘", "结构化洞察帮助雇主更快决策。"]],
+        industriesTitle: "服务行业",
+        industries: ["科技", "医疗健康", "数字服务", "房地产", "金融科技", "技术岗位"],
+        mediaTitle: "由媒体认可支持的全球信誉",
+        mediaText: "创始人的美国招聘公司 The Skill Hire 因人工智能招聘创新和全球人才解决方案获得媒体报道。",
+        mediaDisclaimer: "媒体报道与创始人的美国 AI 招聘公司 The Skill Hire 相关。",
+        founderTitle: "由 Mahamudul Hasan 创立",
+        founderText: "Mahamudul Hasan 是招聘战略家、软件工程师和科技企业家，正在将 TSH AI Solutions 打造成全球人工智能招聘和劳动力发展公司。",
+        spainTitle: "立足马德里。服务欧洲。连接全球。",
+        spainText: "西班牙是欧洲增长的战略门户。TSH AI Solutions 从马德里起步，采用数字优先模式。",
+        contactTitle: "准备好全球招聘了吗？",
+        contactText: "告诉我们您需要的人才，我们将帮助您建立更智能的招聘 pipeline。",
+        form: ["姓名", "公司", "电子邮件", "电话", "招聘需求", "留言"],
+        submit: "提交咨询",
+        footer: "© 2026 TSH AI Solutions, Sociedad Limitada. Written and developed for Mahamudul Hasan."
+      }
+    };
+
+    const languageSelect = document.getElementById('languageSelect');
+    Object.keys(translations).forEach(key => {
+      const option = document.createElement('option');
+      option.value = key;
+      option.textContent = translations[key].label;
+      languageSelect.appendChild(option);
+    });
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+
+      document.getElementById('navLinks').innerHTML = t.nav.map((n, i) => {
+        const ids = ['home','platform','industries','media','founder','contact'];
+        return `<a href="#${ids[i]}">${n}</a>`;
+      }).join('');
+
+      document.getElementById('workflowList').innerHTML = t.stats.map((s, i) => `
+        <div class="workflowItem">
+          <div class="workflowIcon">${workflowIcons[i]}</div>
+          <div><div class="workflowTitle">${s}</div><div class="workflowSmall">AI workflow layer ${i + 1}</div></div>
+        </div>`).join('');
+
+      document.getElementById('mediaStrip').innerHTML = mediaLogos.map(m => `<div class="mediaLogo">${m}</div>`).join('');
+      document.getElementById('mediaCards').innerHTML = mediaLogos.map(m => `<div class="mediaCard"><h3>${m}</h3><small>Featured Media Coverage</small></div>`).join('');
+
+      document.getElementById('featuresGrid').innerHTML = t.features.map((f, i) => `
+        <div class="featureCard">
+          <div class="featureIcon">${featureIcons[i]}</div>
+          <h3>${f[0]}</h3>
+          <p>${f[1]}</p>
+        </div>`).join('');
+
+      document.getElementById('industryGrid').innerHTML = t.industries.map(item => `<div class="pill"><span>✓</span>${item}</div>`).join('');
+      ['Name','Company','Email','Phone','Need','Message'].forEach((name, i) => {
+        const label = document.getElementById('label' + name);
+        if (label) label.textContent = t.form[i];
+      });
+      document.querySelectorAll('input, textarea').forEach((el, i) => { if (t.form[i]) el.placeholder = t.form[i]; });
+    }
+
+    languageSelect.addEventListener('change', (e) => setLanguage(e.target.value));
+    setLanguage('en');
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const company = encodeURIComponent(document.getElementById('company').value || '');
+      const email = encodeURIComponent(document.getElementById('email').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const need = encodeURIComponent(document.getElementById('need').value || '');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
+      const subject = `TSH AI Solutions Inquiry from ${decodeURIComponent(name)}`;
+      const body = `Full Name: ${decodeURIComponent(name)}%0D%0ACompany: ${decodeURIComponent(company)}%0D%0AEmail: ${decodeURIComponent(email)}%0D%0APhone: ${decodeURIComponent(phone)}%0D%0AHiring Need: ${decodeURIComponent(need)}%0D%0A%0D%0AMessage:%0D%0A${decodeURIComponent(message)}`;
+      window.location.href = `mailto:info@tshaisolutions.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
